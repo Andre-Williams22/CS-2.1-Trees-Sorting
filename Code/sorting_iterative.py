@@ -63,7 +63,6 @@ def insertion_sort(items):
     # TODO: Insert it in sorted order in front of items
     # loop through starting at index 1
     for i in range(1, len(items)):
-
         currentIdx = i 
         # check current as our break condition 
         while currentIdx > 0 and currentIdx[i] > currentIdx[i+1]:
