@@ -51,6 +51,9 @@ def selection_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Find minimum item in unsorted items
     # TODO: Swap it with first unsorted item
+    currentIdx = 0
+    for i in range(len(items)-1):
+        pass 
 
 
 def insertion_sort(items):
