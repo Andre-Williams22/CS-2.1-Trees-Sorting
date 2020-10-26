@@ -52,8 +52,18 @@ def selection_sort(items):
     # TODO: Find minimum item in unsorted items
     # TODO: Swap it with first unsorted item
     currentIdx = 0
-    for i in range(len(items)-1):
-        pass 
+    while currentIdx < len(array) - 1:
+        smallestIdx = currentIdx
+        
+        for i in range(currentIdx + 1, len(items)):
+            if items[smallestIdx] > items[i]:
+                smallestIdex = i 
+        swap(currentIdx, smallestIdx, items)
+
+        currentIdx += 1 
+    return items
+
+        
 
 
 def insertion_sort(items):
