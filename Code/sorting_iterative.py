@@ -46,20 +46,24 @@ def swap(i, j, array):
 def selection_sort(items):
     """Sort given items by finding minimum item, swapping it with first
     unsorted item, and repeating until all items are in sorted order.
-    TODO: Running time: O(n^2) Why and under what conditions?
-    TODO: Memory usage: O(1) Why and under what conditions?"""
+    TODO: Running time: O(n^2) Why and under what conditions? have to loop through list twice to check order
+    TODO: Memory usage: O(1) Why and under what conditions? 
+    """
     # TODO: Repeat until all items are in sorted order
     # TODO: Find minimum item in unsorted items
     # TODO: Swap it with first unsorted item
     currentIdx = 0
     while currentIdx < len(array) - 1:
+        # create a smaller index
         smallestIdx = currentIdx
-        
+        # check next index which is 1 before smallestIdx
         for i in range(currentIdx + 1, len(items)):
+            # checks adjacent numbers
             if items[smallestIdx] > items[i]:
                 smallestIdex = i 
+        # call swap function
         swap(currentIdx, smallestIdx, items)
-
+        # increment the counter
         currentIdx += 1 
     return items
 
