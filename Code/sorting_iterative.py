@@ -6,14 +6,16 @@ def is_sorted(items):
     TODO: Running time: O(n) Why and under what conditions? The length of time is dependent on the input because we are visiting every element.
     TODO: Memory usage: O(1) Why and under what conditions? There's no extra space required because this was done in place."""
     # TODO: Check that all adjacent items are in order, return early if so
-    for i in range(len(items)-1):
-        next_item = items[i+1]
-        # assum check for ascending order 
-        if next_item <= items[i]:
-            return False 
-    # all cases checked so return False 
-    return True 
-
+    flag = 0
+    i = 1
+    while i < len(items):
+        if items[i] < items[i-1]:
+            flag = 1
+        i += 1 
+    if not flag:
+        return True 
+    else:
+        return False 
 
 def bubble_sort(items):
     """Sort given items by swapping adjacent items that are out of order, and
@@ -53,7 +55,7 @@ def selection_sort(items):
     # TODO: Find minimum item in unsorted items
     # TODO: Swap it with first unsorted item
     currentIdx = 0
-    while currentIdx < len(array) - 1:
+    while currentIdx < len(items) - 1:
         # create a smaller index
         smallestIdx = currentIdx
         # check next index which is 1 before smallestIdx
