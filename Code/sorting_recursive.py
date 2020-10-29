@@ -9,25 +9,42 @@ def merge(items1, items2):
     # TODO: Repeat until one list is empty
     # TODO: Find minimum item in both lists and append it to new list
     # TODO: Append remaining items in non-empty list to new list
+
+    # check both lists sizes as base case 
+    if len(items1) <= 0:
+        return items2
+    if len(items2) <= 0:
+        return items1 
+
     a = [1, 5, 7]
     b = [2, 4, 6, 9, 11, 12, 13]
-    s = [1, 2, 4, 5, 6, 7]
+    solution = [1, 2, 4, 5, 6, 7]
     # s.extend(a[pointer:])
     p1 = 0 
     p2 = 0 
     # loop through with pointers:
+    while p1 < len(items1)-1 and p2 < len(items2)-1: 
+        if items1[p1] < items[p2]:
+            # add smaller item to solution array
+            solution.append(items[p1])
+            p1 += 1 
+         # check items against each other 
+        elif items1[p1] > items2[p2]:
+            # add smaller item to solution array
+            solution.append(solution.append(items[p2]))
+            p2 += 1 
+        else:
+            solution.append(items1[p1])
+            p1 += 1 
+            p2 += 1 
 
-        # check items against each other 
-        # add smaller item to solution array 
+    # check if one array is done. Then add the entire other array to the end of the list 
+    if len(items1) == len()
+
+        
     #s.extend(b[pointer:])
     # items3.extend(items1[i:])
     #     items3.extend(items2[j:])
-
-
-    if a[0] <= b[0]:
-        s.append(a[0])
-
-
 
 
 
