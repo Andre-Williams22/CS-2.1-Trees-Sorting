@@ -9,6 +9,26 @@ def merge(items1, items2):
     # TODO: Repeat until one list is empty
     # TODO: Find minimum item in both lists and append it to new list
     # TODO: Append remaining items in non-empty list to new list
+    a = [1, 5, 7]
+    b = [2, 4, 6, 9, 11, 12, 13]
+    s = [1, 2, 4, 5, 6, 7]
+    # s.extend(a[pointer:])
+    p1 = 0 
+    p2 = 0 
+    # loop through with pointers:
+
+        # check items against each other 
+        # add smaller item to solution array 
+    #s.extend(b[pointer:])
+    # items3.extend(items1[i:])
+    #     items3.extend(items2[j:])
+
+
+    if a[0] <= b[0]:
+        s.append(a[0])
+
+
+
 
 
 def split_sort_merge(items):
