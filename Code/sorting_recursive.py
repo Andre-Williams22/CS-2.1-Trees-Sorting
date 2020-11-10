@@ -16,9 +16,7 @@ def merge(items1, items2):
     if len(items2) <= 0:
         return items1 
 
-    a = [1, 5, 7]
-    b = [2, 4, 6, 9, 11, 12, 13]
-    solution = [1, 2, 4, 5, 6, 7]
+    solution = []
     # s.extend(a[pointer:])
     p1 = 0 
     p2 = 0 
@@ -34,15 +32,24 @@ def merge(items1, items2):
             solution.append(solution.append(items[p2]))
             p2 += 1 
         else:
+            # if they re both the same numbers
             solution.append(items1[p1])
+            solution.append(items2[p2])
+            # move forward in both lists
             p1 += 1 
             p2 += 1 
 
     # check if one array is done. Then add the entire other array to the end of the list 
-    if len(items1) == len()
+    if len(items1) == p1:
+        for item in range(p2, len(items2)):
+            solution.append(items2[item])
+    if len(items2) == p2:
+        for item in range(p2, len(items2)):
+            solution.append(items2[item])
+    
+    return solution
 
-        
-    #s.extend(b[pointer:])
+    # s.extend(b[pointer:])
     # items3.extend(items1[i:])
     #     items3.extend(items2[j:])
 
