@@ -13,6 +13,14 @@ def counting_sort(numbers):
     # FIXME: Improve this to mutate input instead of creating new output list
 
 
+# use a hashtable to store counts of numbers 
+
+# sort hashtable from least to greatest 
+
+# loop through hashtable and add each number to a new sorted list 
+
+# return sorted list 
+
 def bucket_sort(numbers, num_buckets=10):
     """Sort given numbers by distributing into buckets representing subranges,
     then sorting each bucket and concatenating all buckets in sorted order.
