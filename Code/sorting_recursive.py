@@ -88,7 +88,7 @@ def split_sort_merge(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each with an iterative sorting algorithm, and merging results into
     a list in sorted order.
-    TODO: Running time: O(nlog(n)) Why and under what conditions? We're cutting our array in half and multiplying by n log times
+    TODO: Running time: O(n^2) Why and under what conditions? We're cutting our array in half and multiplying by n log times
     TODO: Memory usage: O(nlog(n)) Why and under what conditions? we're doing it in place but also """
     # TODO: Split items list into approximately equal halves
     # TODO: Sort each half using any other sorting algorithm
@@ -110,7 +110,6 @@ def split_sort_merge(items):
         
         current_size = 2 * current_size
 
-
     return items 
     
 def merge_sort(items):
@@ -126,8 +125,11 @@ def merge_sort(items):
     # TODO: Split items list into approximately equal halves
     # TODO: Sort each half by recursively calling merge sort
     # TODO: Merge sorted halves into one list in sorted order
+    
+    # checks base case 
     if len(items) == 1:
         return items 
+        
     middleIdx = len(items) // 2 
     leftHalf = items[:middleIdx]
     rightHalf == items[middleIdx:]
@@ -137,6 +139,7 @@ def recursiveMergeSortedArrays(leftHalf, rightHalf):
     sortedArray = [None] * (len(leftHalf) + len(rightHalf))
     k = i = j = 0
     while i < len(leftHalf) and j < len(rightHalf):
+        # if left half is smaller 
         if leftHalf[i] <= rightHalf[j]:
             sortedArray[k] = leftHalf[i]
             i += 1 
