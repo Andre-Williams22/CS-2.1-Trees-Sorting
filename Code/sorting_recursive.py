@@ -55,7 +55,7 @@ def merge(items1, items2):
     return solution
 
 def iterative_merge_helper(a, m, left, right):
-
+    '''applies the iterative approach to merge sort'''
     n1 = m - left+ 1 
     n2 = right - m
     L = [0] * n1
@@ -196,6 +196,7 @@ def partition(items, low, high):
         
 
 def swap(i, j, array):
+    '''helper function to merge to swap items in different indexes'''
     array[i], array[j] = array[j], array[i]
 
 
@@ -212,5 +213,7 @@ def quick_sort(items, low=None, high=None):
     # TODO: Partition items in-place around a pivot and get index of pivot
     # TODO: Sort each sublist range by recursively calling quick sort
 
+    # calls the helper function 
     partition(items, 0, len(items)-1)
+    # returns sorted array
     return items 
