@@ -54,30 +54,65 @@ def merge(items1, items2):
     # return the new array 
     return solution
 
-def iterative_merge_helper(left, right):
-    if not len(left) or not len(right):
-        return left or right 
+def iterative_merge_helper(a, m, left, right):
 
-    results = []
-    i, j = 0, 0
+    n1 = m - left+ 1 
+    n2 = right - m
+    L = [0] * n1
+    R = [0] * n2
+    for i in range(0, n1):
+        L[i] = a[left + i]
+    for i in range(0, n2):
+        R[i] = a[m + i + 1]
+
+    i, j, k, = 0, 0, left
+    while i < n1 and j < n2:
+        if L[i] > R[j]:
+            a[k] = R[j]
+            j += 1 
+        else:
+            a[k] = L[i]
+            i += 1 
+        k += 1 
+    while i < n1:
+        a[k] = L[i]
+        i += 1 
+        k += 1
+
+    while j < n2:
+        a[k] = R[j]
+        j += 1 
+        k += 1  
+
 
 
 def split_sort_merge(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each with an iterative sorting algorithm, and merging results into
     a list in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    TODO: Running time: O(nlog(n)) Why and under what conditions?
+    TODO: Memory usage: O(nlog(n)) Why and under what conditions?"""
     # TODO: Split items list into approximately equal halves
     # TODO: Sort each half using any other sorting algorithm
     # TODO: Merge sorted halves into one list in sorted order
-    if len(items) <2:
-        return items
-    middle = len(items) // 2 
-    left = iterative_merge_helper(items[:middle])
-    right = iterative_merge_helper(items[middle:])
+    current_size = 1
 
-    return iterative_merge_helper(left, right)
+    while current_size < len(items) -1:
+        left = 0
+
+        while left < len(a) -1:
+
+            mid = min((left + current_size -1), (len(a) -1))
+
+            right = ((2 * current_size + left -1, len(a) -1) [2*current_size + left - 1 > len(a)-1])
+
+            iterative_merge_helper(items, mid, left, right)
+            left = left + current_size*2
+        
+        current_size = 2 * current_size
+
+
+    return items 
     
 def merge_sort(items):
     """Sort given items by splitting list into two approximately equal halves,
@@ -95,9 +130,9 @@ def merge_sort(items):
     middleIdx = len(items) // 2 
     leftHalf = items[:middleIdx]
     rightHalf == items[middleIdx:]
-    return mergeSortedArrays(merge_sort(leftHalf), merge_sort(rightHalf))
+    return recursiveMergeSortedArrays(merge_sort(leftHalf), merge_sort(rightHalf))
 
-def mergeSortedArrays(leftHalf, rightHalf):
+def recursiveMergeSortedArrays(leftHalf, rightHalf):
     sortedArray = [None] * (len(leftHalf) + len(rightHalf))
     k = i = j = 0
     while i < len(leftHalf) and j < len(rightHalf):
@@ -131,14 +166,51 @@ def partition(items, low, high):
     # TODO: Move items greater than pivot into back of range [p+1...high]
     # TODO: Move pivot item into final position [p] and return index p
 
+# A = [8, 10, 2, 9, 5, 6, 3]
+    #  P      L           R
+    if low >= high:
+        return 
+
+    pivotIdx = low 
+    leftIdx = low + 1 
+    rightIdx = high 
+    while rightIdx >= leftIdx:
+        if items[leftIdx] > items[pivotIdx] and items[rightIdx] < items[pivotIdx]:
+            swap(leftIdx, rightIdx, items)
+        if items[leftIdx] <= items[pivotIdx]:
+            leftIdx += 1 
+        if items[rightIdx] >= items[pivotIdx]:
+            rightIdx -= 1 
+    swap(pivotIdx, rightIdx, items)
+
+    # apply quicksort 
+    leftSubarrayIsSmaller = rightIdx -1 - low < high - (rightIdx + 1)
+
+    if leftSubarrayIsSmaller:
+        partition(items, low, rightIdx -1)
+        partition(items, rightIdx + 1, high)
+    else:
+        partition(items, rightIdx + 1, high)
+        partition(items, low, rightIdx - 1)
+
+        
+
+def swap(i, j, array):
+    array[i], array[j] = array[j], array[i]
+
 
 def quick_sort(items, low=None, high=None):
     """Sort given items in place by partitioning items in range `[low...high]`
     around a pivot item and recursively sorting each remaining sublist range.
-    TODO: Best case running time: ??? Why and under what conditions?
-    TODO: Worst case running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    TODO: Best case running time: O(n log(n)) Why and under what conditions?
+    TODO: Worst case running time: O(n^2) Why and under what conditions? Because I would have to loop 
+    over the array twice to  sort the array. this means the pivot will go to the end of the array
+    TODO: Memory usage: O(log(n)) Why and under what conditions? I need to use recursion and am doing it in place.
+    There will be memory usage because of frames on the call stack. There will be log(n) calls on the array. """
     # TODO: Check if high and low range bounds have default values (not given)
     # TODO: Check if list or range is so small it's already sorted (base case)
     # TODO: Partition items in-place around a pivot and get index of pivot
     # TODO: Sort each sublist range by recursively calling quick sort
+
+    partition(items, 0, len(items)-1)
+    return items 
