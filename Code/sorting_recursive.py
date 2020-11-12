@@ -1,6 +1,4 @@
 #!python
-
-
 def merge(items1, items2):
     """Merge given lists of items, each assumed to already be in sorted order,
     and return a new list containing all items in sorted order.
@@ -33,7 +31,7 @@ def merge(items1, items2):
          # check items against each other 
         elif items1[p1] > items2[p2]:
             # add smaller item to solution array
-            solution.append(solution.append(items[p2]))
+            solution.append(items[p2]))
             p2 += 1 
         else:
             # if they re both the same numbers
@@ -90,21 +88,22 @@ def split_sort_merge(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each with an iterative sorting algorithm, and merging results into
     a list in sorted order.
-    TODO: Running time: O(nlog(n)) Why and under what conditions?
-    TODO: Memory usage: O(nlog(n)) Why and under what conditions?"""
+    TODO: Running time: O(nlog(n)) Why and under what conditions? We're cutting our array in half and multiplying by n log times
+    TODO: Memory usage: O(nlog(n)) Why and under what conditions? we're doing it in place but also """
     # TODO: Split items list into approximately equal halves
     # TODO: Sort each half using any other sorting algorithm
     # TODO: Merge sorted halves into one list in sorted order
     current_size = 1
 
     while current_size < len(items) -1:
+        # set beginning
         left = 0
 
-        while left < len(a) -1:
+        while left < len(items) -1:
 
-            mid = min((left + current_size -1), (len(a) -1))
+            mid = min((left + current_size -1), (len(items) -1))
 
-            right = ((2 * current_size + left -1, len(a) -1) [2*current_size + left - 1 > len(a)-1])
+            right = ((2 * current_size + left -1, len(items) -1) [2*current_size + left - 1 > len(items)-1])
 
             iterative_merge_helper(items, mid, left, right)
             left = left + current_size*2
@@ -118,7 +117,8 @@ def merge_sort(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each recursively, and merging results into a list in sorted order.
     TODO: Running time: O(nlog(n)) Why and under what conditions? the array  
-    TODO: Memory usage: O(nlog(n)) Why and under what conditions?
+    TODO: Memory usage: O(nlog(n)) Why and under what conditions? I need to use recursion and am doing it in place.
+    There will be memory usage because of frames on the call stack. There will be log(n) calls on the array. 
     
     """
     # TODO: Check if list is so small it's already sorted (base case)
@@ -158,8 +158,12 @@ def partition(items, low, high):
     `[low...high]` by choosing a pivot (TODO: document your method here) from
     that range, moving pivot into index `p`, items less than pivot into range
     `[low...p-1]`, and items greater than pivot into range `[p+1...high]`.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    TODO: Running time: O(n log n) Why and under what conditions? Average Case because I would have to loop 
+    over the array twice to  sort the array. this means the pivot will go to the end of the array.
+    TODO: Memory usage: O(n log n) Why and under what conditions? I need to use recursion and am doing it in place.
+    There will be memory usage because of frames on the call stack. There will be log(n) calls on the array.
+    
+    """
     # TODO: Choose a pivot any way and document your method in docstring above
     # TODO: Loop through all items in range [low...high]
     # TODO: Move items less than pivot into front of range [low...p-1]
@@ -170,9 +174,11 @@ def partition(items, low, high):
     #  P      L           R
     if low >= high:
         return 
-
+    # set pivot to beginning so index 0
     pivotIdx = low 
+    # 1 before the pivot so index 1 
     leftIdx = low + 1 
+    # end of list
     rightIdx = high 
     while rightIdx >= leftIdx:
         if items[leftIdx] > items[pivotIdx] and items[rightIdx] < items[pivotIdx]:
