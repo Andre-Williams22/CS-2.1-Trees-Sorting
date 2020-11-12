@@ -116,7 +116,8 @@ def split_sort_merge(items):
 def merge_sort(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each recursively, and merging results into a list in sorted order.
-    TODO: Running time: O(nlog(n)) Why and under what conditions? the array  
+    TODO: Running time: O(nlog(n)) Why and under what conditions? the array is divided in two halves. the merge is a key process
+    that assumes that they're sorted and merges the two sorted sub-arrays into one.
     TODO: Memory usage: O(nlog(n)) Why and under what conditions? I need to use recursion and am doing it in place.
     There will be memory usage because of frames on the call stack. There will be log(n) calls on the array. 
     
@@ -162,7 +163,6 @@ def partition(items, low, high):
     over the array twice to  sort the array. this means the pivot will go to the end of the array.
     TODO: Memory usage: O(n log n) Why and under what conditions? I need to use recursion and am doing it in place.
     There will be memory usage because of frames on the call stack. There will be log(n) calls on the array.
-    
     """
     # TODO: Choose a pivot any way and document your method in docstring above
     # TODO: Loop through all items in range [low...high]
