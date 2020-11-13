@@ -13,13 +13,28 @@ def counting_sort(numbers):
     # FIXME: Improve this to mutate input instead of creating new output list
 
 
-# use a hashtable to store counts of numbers 
+    # use a hashtable to store counts of numbers 
+    hashtable = {}
+    # new counting sorted list 
+    sorted_list = []
 
-# sort hashtable from least to greatest 
+    # add numbers and their counts to a hashtable 
+    for num in numbers:
+        if num in hashtable:
+            hashtable[num] += 1 
+        else:
+            hashtable[num] = 1 
 
-# loop through hashtable and add each number to a new sorted list 
+    # loop through hashtable, sort keys, and add each number and it's occurences to a new sorted list
+    for k,v in sorted(hashtable.items()):
+        # add key based on number of values, v
+        for i in range(v):
+            sorted_list.append(k)
 
-# return sorted list 
+    # return sorted list 
+    return sorted_list
+
+ 
 
 def bucket_sort(numbers, num_buckets=10):
     """Sort given numbers by distributing into buckets representing subranges,
