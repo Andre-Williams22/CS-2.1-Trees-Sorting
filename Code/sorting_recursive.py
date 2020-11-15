@@ -44,7 +44,7 @@ def merge(items1, items2):
     if len(items1) == p1:
         for item in range(p2, len(items2)):
             solution.append(items2[item])
-    
+    # check if one arreay is done. Then add the rest of the other array to the end of the list.
     if len(items2) == p2:
         for item in range(p2, len(items2)):
             solution.append(items2[item])
