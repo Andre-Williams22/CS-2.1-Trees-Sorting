@@ -24,14 +24,14 @@ def merge(items1, items2):
     p2 = 0 
     # loop through with pointers:
     while p1 < len(items1)-1 and p2 < len(items2)-1: 
-        if items1[p1] < items[p2]:
+        if items1[p1] < items2[p2]:
             # add smaller item to solution array
-            solution.append(items[p1])
+            solution.append(items2[p1])
             p1 += 1 
          # check items against each other 
         elif items1[p1] > items2[p2]:
             # add smaller item to solution array
-            solution.append(items[p2]))
+            solution.append(items2[p2])
             p2 += 1 
         else:
             # if they re both the same numbers
