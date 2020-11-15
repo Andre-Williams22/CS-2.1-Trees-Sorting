@@ -5,7 +5,7 @@ def counting_sort(numbers):
     """Sort given numbers (integers) by counting occurrences of each number,
     then looping over counts and copying that many numbers into output list.
     TODO: Running time: O(n^2) Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    TODO: Memory usage: O(n) Why and under what conditions? Because I am storing all the data into another data structure."""
     # TODO: Find range of given numbers (minimum and maximum integer values)
     # TODO: Create list of counts with a slot for each number in input range
     # TODO: Loop over given numbers and increment each number's count
