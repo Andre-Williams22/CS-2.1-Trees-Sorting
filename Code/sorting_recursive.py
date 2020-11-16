@@ -24,14 +24,14 @@ def merge(items1, items2):
     p2 = 0 
     # loop through with pointers:
     while p1 < len(items1)-1 and p2 < len(items2)-1: 
-        if items1[p1] < items[p2]:
+        if items1[p1] < items2[p2]:
             # add smaller item to solution array
-            solution.append(items[p1])
+            solution.append(items2[p1])
             p1 += 1 
          # check items against each other 
         elif items1[p1] > items2[p2]:
             # add smaller item to solution array
-            solution.append(items[p2]))
+            solution.append(items2[p2])
             p2 += 1 
         else:
             # if they re both the same numbers
@@ -44,7 +44,7 @@ def merge(items1, items2):
     if len(items1) == p1:
         for item in range(p2, len(items2)):
             solution.append(items2[item])
-    
+    # check if one arreay is done. Then add the rest of the other array to the end of the list.
     if len(items2) == p2:
         for item in range(p2, len(items2)):
             solution.append(items2[item])
@@ -132,7 +132,7 @@ def merge_sort(items):
         
     middleIdx = len(items) // 2 
     leftHalf = items[:middleIdx]
-    rightHalf == items[middleIdx:]
+    rightHalf = items[middleIdx:]
     return recursiveMergeSortedArrays(merge_sort(leftHalf), merge_sort(rightHalf))
 
 def recursiveMergeSortedArrays(leftHalf, rightHalf):
