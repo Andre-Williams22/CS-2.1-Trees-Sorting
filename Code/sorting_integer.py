@@ -32,8 +32,6 @@ def counting_sort(numbers):
     # return sorted list 
     return sorted_list
 
- 
- 
 def grab_largest_nums(numbers):
     largest = 0
     for item in numbers:
@@ -47,8 +45,13 @@ def grab_largest_nums(numbers):
 def bucket_sort(numbers, num_buckets=10):
     """Sort given numbers by distributing into buckets representing subranges,
     then sorting each bucket and concatenating all buckets in sorted order.
-    TODO: Running time: O(nw) Why and under what conditions? N is the number of keys or digits and w is the length of the longest key.
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    TODO: Running time: O(nw) which is O(n) Why and under what conditions? N is the number of keys or digits 
+    and w is the length of the longest key.
+    TODO: Memory usage: ??? Why and under what conditions?
+    
+    
+    
+    """
     # TODO: Find range of given numbers (minimum and maximum values)
     # TODO: Create list of buckets to store numbers in subranges of input range
     # TODO: Loop over given numbers and place each item in appropriate bucket
@@ -57,5 +60,5 @@ def bucket_sort(numbers, num_buckets=10):
     # FIXME: Improve this to mutate input instead of creating new output list
 
     grab_largest_nums(numbers)
-    
-    
+
+
