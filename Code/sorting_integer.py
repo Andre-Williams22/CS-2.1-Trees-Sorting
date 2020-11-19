@@ -47,10 +47,7 @@ def bucket_sort(numbers, num_buckets=10):
     then sorting each bucket and concatenating all buckets in sorted order.
     TODO: Running time: O(nw) which is O(n) Why and under what conditions? N is the number of keys or digits 
     and w is the length of the longest key.
-    TODO: Memory usage: ??? Why and under what conditions?
-    
-    
-    
+    TODO: Memory usage: O(n) Why and under what conditions? This is dependent upon the length of the buckets
     """
     # TODO: Find range of given numbers (minimum and maximum values)
     # TODO: Create list of buckets to store numbers in subranges of input range
