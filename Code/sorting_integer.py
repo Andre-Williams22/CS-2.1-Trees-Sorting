@@ -82,9 +82,10 @@ def recursiveMergeSortedArrays(leftHalf, rightHalf):
 
 
 def grab_largest_nums(numbers):
+    # keeps track of largest number
     largest = 0
     for item in numbers:
-        
+        # checks item against largest number
         if item > largest:
             largest = item
             
@@ -95,7 +96,7 @@ def bucket_sort(numbers, num_buckets=10):
     then sorting each bucket and concatenating all buckets in sorted order.
     TODO: Running time: O(nw) which is O(n) Why and under what conditions? N is the number of keys or digits 
     and w is the length of the longest key.
-    TODO: Memory usage: ??? Why and under what conditions?
+    TODO: Memory usage: O(n) Why and under what conditions? This is dependent upon the length of the buckets
     """
     # TODO: Find range of given numbers (minimum and maximum values)
     # TODO: Create list of buckets to store numbers in subranges of input range
@@ -136,4 +137,7 @@ def bucket_sort(numbers, num_buckets=10):
             numbers.append(item)
 
     return numbers
+
+
+
 
