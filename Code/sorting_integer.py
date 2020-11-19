@@ -33,9 +33,10 @@ def counting_sort(numbers):
     return sorted_list
 
 def grab_largest_nums(numbers):
+    # keeps track of largest number
     largest = 0
     for item in numbers:
-        
+        # checks item against largest number
         if item > largest:
             largest = item
             
@@ -56,6 +57,10 @@ def bucket_sort(numbers, num_buckets=10):
     # TODO: Loop over buckets and append each bucket's numbers into output list
     # FIXME: Improve this to mutate input instead of creating new output list
 
+    
     grab_largest_nums(numbers)
+
+
+
 
 
