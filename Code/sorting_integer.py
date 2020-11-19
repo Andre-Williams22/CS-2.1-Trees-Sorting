@@ -94,7 +94,7 @@ def grab_largest_nums(numbers):
 def bucket_sort(numbers, num_buckets=10):
     """Sort given numbers by distributing into buckets representing subranges,
     then sorting each bucket and concatenating all buckets in sorted order.
-    TODO: Running time: O(nw) which is O(n) Why and under what conditions? N is the number of keys or digits 
+    TODO: Running time: O(nw) which is O(n^2) Why and under what conditions? N is the number of keys or digits 
     and w is the length of the longest key.
     TODO: Memory usage: O(n) Why and under what conditions? This is dependent upon the length of the buckets
     """
@@ -112,30 +112,35 @@ def bucket_sort(numbers, num_buckets=10):
     minimum = numbers[0]
     maximum = numbers[0]
 
-
+    # finds minimum and maximum in numbers array
     for item in numbers:
         if minimum > item:
             minimum = 1
         if maximum < item:
             maximum = item
 
+    # adds numbers into copy 
     for i in range(0,len(numbers)):
         copy.append([])
 
+    # takes each number and puts them into buckets
     for item in numbers:
+        # putting it into a bucket
         unique_index = int(item * len(numbers) / (maximum + 1))
         copy[unique_index].append(item)
 
     for i in range(len(copy)):
-        # call merge sort
+        # call merge sort on each bucket of numbers 
         new_list[i] = merge_sort(copy[i])
 
-    numbers.clear() #Empty the list
-
+    # clears list
+    numbers.clear() 
+    # adds everything from copy to new list
     for i in range(len(copy)):
         for item in copy[i]:
             numbers.append(item)
 
+    # return sorted list
     return numbers
 
 
