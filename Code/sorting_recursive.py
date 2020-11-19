@@ -184,17 +184,22 @@ def partition(items, low, high):
     # end of list
     rightIdx = high 
     while rightIdx >= leftIdx:
+        # check if left is greater than pivot and right is left
         if items[leftIdx] > items[pivotIdx] and items[rightIdx] < items[pivotIdx]:
             swap(leftIdx, rightIdx, items)
+            # check if pivot is less than pivot
         if items[leftIdx] <= items[pivotIdx]:
             leftIdx += 1 
+            # chek if right is greater than pivot
         if items[rightIdx] >= items[pivotIdx]:
             rightIdx -= 1 
+    # the left pointer is past the right pointer 
     swap(pivotIdx, rightIdx, items)
 
-    # apply quicksort 
+    # the left and right pointers are at end of the list so check which side of array is smaller
     leftSubarrayIsSmaller = rightIdx -1 - low < high - (rightIdx + 1)
 
+    # apply quicksort recursively 
     if leftSubarrayIsSmaller:
         partition(items, low, rightIdx -1)
         partition(items, rightIdx + 1, high)
