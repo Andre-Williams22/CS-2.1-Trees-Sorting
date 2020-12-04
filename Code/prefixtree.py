@@ -149,11 +149,11 @@ class PrefixTree:
             visit(prefix)
         
         # if the node has children (can be terminal AND have children)
-        # need to loop through children 
-        # call traverse on the children
         if len(node.children) > 0: 
+            # need to loop through children 
             for child in node.children:
                 # child = node.get_child(child)
+                # call traverse on the children
                 self._traverse(node.get_child(child), prefix+child, visit)    
 
         
