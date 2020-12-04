@@ -142,10 +142,10 @@ class PrefixTree:
         Start at the given node with the given prefix representing its path in
         this prefix tree and visit each node with the given visit function."""
         # TODO
-
+        
         # if node is terminal 
-        # call visit 
         if node.is_terminal():
+            # call visit 
             visit(prefix)
         
         # if the node has children (can be terminal AND have children)
