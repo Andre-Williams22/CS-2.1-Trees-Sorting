@@ -62,7 +62,7 @@ class PrefixTree:
             else:
             # add the node 
                 
-                new_node = PrefixTree(char)
+                new_node = PrefixTreeNode(char)
                 # add it to trie
                 node.add_child(char, new_node)
                 # reassign
@@ -72,9 +72,6 @@ class PrefixTree:
         if not node.is_terminal():
             self.size += 1 
             node.terminal = True     
-                
-                 
-        
 
     def _find_node(self, string):
         """Return a pair containing the deepest node in this prefix tree that
@@ -92,6 +89,8 @@ class PrefixTree:
             if node.has_child(letter):
                 node = node.get_child(letter)
                 depth += 1 
+            else:
+                return None, depth 
                 
         return node, depth 
         
@@ -152,10 +151,10 @@ class PrefixTree:
         # if the node has children (can be terminal AND have children)
         # need to loop through children 
         # call traverse on the children
-        if len(node.children > 0): 
+        if len(node.children) > 0: 
             for child in node.children:
-                child = node.get_child(child)
-                self._traverse(child, prefix+child.character, visit)    
+                # child = node.get_child(child)
+                self._traverse(node.get_child(child), prefix+child, visit)    
 
         
 def create_prefix_tree(strings):
