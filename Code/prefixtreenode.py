@@ -36,10 +36,6 @@ class PrefixTreeNode:
         represents the given character amongst its children."""
         # TODO: Check if given character is amongst this node's children
         
-        # for char in self.children:
-        #     if character in self.children:
-        #         return True 
-        # return False 
         if character in self.children:
             return True
         return False 
