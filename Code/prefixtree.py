@@ -13,7 +13,9 @@ class PrefixTree:
     its height depends only on the length of the longest string stored in it.
     This makes a prefix tree effective for spell-checking and autocompletion.
     Each string is stored as a sequence of characters along a path from the
-    tree's root node to a terminal node that marks the end of the string."""
+    tree's root node to a terminal node that marks the end of the string.
+    
+    """
 
     # Constant for the start character stored in the prefix tree's root node
     START_CHARACTER = ''
