@@ -80,7 +80,6 @@ def recursiveMergeSortedArrays(leftHalf, rightHalf):
     return sortedArray
 
 
-
 def grab_largest_nums(numbers):
     # keeps track of largest number
     largest = 0
@@ -107,7 +106,6 @@ def bucket_sort(numbers, num_buckets=10):
 
 
    # grab_largest_nums(numbers)
-    
     copy = []
     minimum = numbers[0]
     maximum = numbers[0]
