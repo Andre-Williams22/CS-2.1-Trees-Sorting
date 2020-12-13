@@ -40,7 +40,7 @@ class PrefixTreeNode:
             return True
         return False 
     
-        # return character in self.children
+        # return character in self.children => returns a boolean 
 
     def get_child(self, character):
         """Return this prefix tree node's child node that represents the given

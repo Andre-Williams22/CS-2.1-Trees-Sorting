@@ -37,11 +37,13 @@ def bubble_sort(items):
                 # call swap function 
                 swap(i, i+1, items)
                 is_sorted = False 
+        # increment count
         counter += 1 
 
     return items 
 
 def swap(i, j, array):
+    '''swap helper function '''
     array[i], array[j] = array[j], array[i]
 
 
