@@ -2,9 +2,16 @@
 
 
 
+def dijkstrasAlgorithm(start, edges):
+    pass 
 
 
 
+
+
+
+def getVertexWithMinDistance(distance, visited):
+    pass 
 
 
 ''' Main tests''' 
